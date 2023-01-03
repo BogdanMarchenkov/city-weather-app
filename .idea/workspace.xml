@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0a82105-58d6-41a3-956b-ee3f5df7ec8d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +27,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "ts.external.directory.path": "D:\\Work\\basketball\\Bogdan\\city-weather-app\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
@@ -47,6 +50,7 @@
       <updated>1672768222835</updated>
       <workItem from="1672768226917" duration="525000" />
       <workItem from="1672771079973" duration="6327000" />
+      <workItem from="1672779023940" duration="259000" />
     </task>
     <servers />
   </component>

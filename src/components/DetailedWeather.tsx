@@ -24,12 +24,12 @@ export const DetailedWeather = () => {
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
         <div>
-          <div style={{ display: "flex", justifyContent: 'space-between', fontSize: 18, padding: 10 }}>
+          {detailed !== null && <div style={{ display: "flex", justifyContent: 'space-between', fontSize: 18, padding: 10 }}>
             <div style={{ padding: 10 }}>temperature {detailed["temperature"]}°C</div>
             <div style={{ padding: 10 }}>feels like {detailed['feelsLike']}°C</div>
             <div style={{ padding: 10 }}>wind speed {detailed['wind']} km/h</div>
             <div style={{ padding: 10 }}>humidity {detailed['humidity']}%</div>
-          </div>
+          </div>}
           <div >
             <div style={{ display: "flex", justifyContent: 'space-between' }}>
               {(forecast as unknown as any[]).map(item => <div style={{ margin: 25 }} key={item.time}>

@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
 import { DetailedWeather } from './components/DetailedWeather';
-import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import { BrowserRouter,Routes,Route, HashRouter } from 'react-router-dom';
 import { SearchCards } from './components/SearchCardsRoute';
 
 const App = () => {
 
   return (
-    <div>test
-    <BrowserRouter>
+   <HashRouter>
+    {/* <BrowserRouter> */}
       <div className="App">
         <header className="App-header">
           <Routes>
@@ -17,8 +17,8 @@ const App = () => {
           </Routes>
         </header>
       </div>
-    </BrowserRouter>
-    </div>
+    {/* </BrowserRouter> */}
+    </HashRouter>
   );
 }
 

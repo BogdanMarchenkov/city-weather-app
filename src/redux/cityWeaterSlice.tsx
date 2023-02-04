@@ -8,8 +8,9 @@ export const getWeatherCityData = createAsyncThunk(
         let response = await weather.getCityData(search)
         if (response.cod === 200) {
             thunkAPI.dispatch(addItems(response))
+            thunkAPI.dispatch(setError(false))
         }
-        return response.cod
+        else thunkAPI.dispatch(setError(true))
     }
 )
 
@@ -37,21 +38,22 @@ export const getForecast = createAsyncThunk(
     async (city: string, thunkAPI) => {
         let response = await weather.getForecast(city)
         const weatherForecast = response.list.map((item) => ({
-            temp: item.main.temp,
-            time: item.dt_txt,
-            hours: item.dt_txt.split(' ')
+            temp: item.main.temp
         }))
         thunkAPI.dispatch(setForecast(weatherForecast))
     })
 
-const items = localStorage.getItem('cardItems') !== null ? JSON.parse(localStorage.getItem('cardItems')) : []
+// const items = localStorage.getItem('cardItems') !== null ? JSON.parse(localStorage.getItem('cardItems')) : []
 
 const cityWeatherSlice = createSlice({
     name: 'cards',
     initialState: {
-        cardItems: items,
+        // cardItems: items,
+        cardItems: [],
+        currentCity: null,
         details: null,
-        forecast: []
+        forecast: [],
+        error: false
     },
     reducers: {
         addItems(state, action) {
@@ -65,22 +67,24 @@ const cityWeatherSlice = createSlice({
                         id: newItem.id,
                         city: newItem.name,
                         temperature: newItem.main.temp,
-                        weather: newItem.weather[0].description
+                        weather: newItem.weather[0].description,
+                        icon: newItem.weather[0].icon
                     }
                 )
             }
-            localStorage.setItem('cardItems', JSON.stringify(state.cardItems.map((item: any) => item)))
+            // localStorage.setItem('cardItems', JSON.stringify(state.cardItems.map((item: any) => item)))
         },
         updateItems(state, action) {
             const newItem = action.payload
             const itemToUpdate = state.cardItems.find((todo: { id: any; }) => todo.id === newItem.id)
             itemToUpdate.temperature = newItem.main.temp
             itemToUpdate.weather = newItem.weather[0].description
-            localStorage.setItem('cardItems', JSON.stringify(state.cardItems.map((item: any) => item)))
+            itemToUpdate.icon = newItem.weather[0].icon
+            // localStorage.setItem('cardItems', JSON.stringify(state.cardItems.map((item: any) => item)))
         },
         removeItems(state, action) {
             state.cardItems = state.cardItems.filter((todo: { id: any; }) => todo.id !== action.payload.id);
-            localStorage.setItem('cardItems', JSON.stringify(state.cardItems.map((item: any) => item)))
+            // localStorage.setItem('cardItems', JSON.stringify(state.cardItems.map((item: any) => item)))
         },
         setForecast(state, action) {
             state.forecast = action.payload;
@@ -88,16 +92,23 @@ const cityWeatherSlice = createSlice({
         setDetails(state, action) {
             const newItem = action.payload
             state.details = {
+                timezone: newItem.timezone,
                 temperature: newItem.main.temp,
                 feelsLike: newItem.main.feels_like,
                 wind: newItem.wind.speed,
                 humidity: newItem.main.humidity
             }
+        },
+        setError(state, action) {
+            state.error = action.payload;
+        },
+        setСurrentCity(state, action) {
+            state.currentCity = action.payload;
         }
     }
 });
 
-export const { addItems, setForecast, removeItems, updateItems, setDetails } = cityWeatherSlice.actions;
+export const { addItems, setForecast, removeItems, updateItems, setDetails, setError, setСurrentCity } = cityWeatherSlice.actions;
 
 export default cityWeatherSlice.reducer;
 

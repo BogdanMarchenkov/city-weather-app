@@ -5,6 +5,7 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import { SearchCards } from './components/SearchCardsRoute';
 
 const App = () => {
+
   return (
     <BrowserRouter>
       <div className="App">

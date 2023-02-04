@@ -14,7 +14,7 @@ import storage from 'redux-persist/lib/storage';
 import cityWeater from './cityWeaterSlice';
 
 const rootReducer = combineReducers({
-    cardItems: cityWeater,
+    cardItems: cityWeater
 });
 
 const persistConfig = {

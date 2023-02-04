@@ -7,6 +7,7 @@ import { SearchCards } from './components/SearchCardsRoute';
 const App = () => {
 
   return (
+    <div>test
     <BrowserRouter>
       <div className="App">
         <header className="App-header">
@@ -17,6 +18,7 @@ const App = () => {
         </header>
       </div>
     </BrowserRouter>
+    </div>
   );
 }
 

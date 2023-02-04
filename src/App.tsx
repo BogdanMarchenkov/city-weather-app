@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { DetailedWeather } from './components/DetailedWeather';
-import { BrowserRouter,Routes,Route, HashRouter } from 'react-router-dom';
+import { Routes,Route, HashRouter } from 'react-router-dom';
 import { SearchCards } from './components/SearchCardsRoute';
 
 const App = () => {

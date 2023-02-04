@@ -31,7 +31,7 @@ const SearchCityWeather = () => {
         <img style={{ paddingLeft: 5, height: 60 }} src={appIcon} alt=''></img>
       </div>
       <div style={{ alignItems: 'center' }}>
-        <input style={{ alignItems: 'center', position: 'relative', verticalAlign: 'middle', fontSize: 19, border: 'none', borderRadius: 4, margin: 10, height: 34 }}
+        <input style={{ alignItems: 'center', position: 'relative', verticalAlign: 'middle', fontSize: 19, border: 'none', borderRadius: 4, margin: 10 , paddingRight: 50, height: 34 }}
           type='text'
           placeholder='Enter city/town...'
           onChange={(e) => setCity(e.target.value)}

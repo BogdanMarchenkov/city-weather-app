@@ -92,7 +92,7 @@ export const DetailedWeather = () => {
     <Card sx={{ backgroundColor: '#DCDCDC', minWidth: 310 , borderRadius: 2 }}>
       <CardContent>
         <div>
-          <div style={{color: '#19181A'}}>{currentCity as unknown as string}</div>
+          {currentCity !== null && <div style={{color: '#19181A'}}>{currentCity as unknown as string}</div>}
           {detailed !== null && <div style={{ display: "flex", justifyContent: 'space-between', fontSize: 18, padding: 10 , color: '#19181A'}}>
             <Vidget icon={temp} rate={detailed["temperature"]} mark='°C' name='temperature' />
             <Vidget icon={feels} rate={detailed["feelsLike"]} mark='°C' name='feels like' />
@@ -100,7 +100,7 @@ export const DetailedWeather = () => {
             <Vidget icon={humidity} rate={detailed["humidity"]} mark='%' name='humidity' />
           </div>}
           <div >
-            <LineChart chartData={chartData} />
+          {chartData !== null && <LineChart chartData={chartData} />}
           </div>
           <Button onClick={backToCards} size="small">back to cards</Button>
         </div>

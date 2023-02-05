@@ -28,11 +28,11 @@ export const BasicCard = (props) => {
   })
 
 
-  const getdetailedForecast = () => {
-    navigate('/detail')
-    dispatch(getDetailedData(props.city))
-    dispatch(getForecast(props.city))
+  const getdetailedForecast = async () => {
+    await dispatch(getDetailedData(props.city))
+    await dispatch(getForecast(props.city))
     dispatch(setСurrentCity(props.city))
+    navigate('/detail')
   }
   
   return (
